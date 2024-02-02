@@ -141,9 +141,12 @@ app.init({
                 app.render();
                 const canvas = app.renderer.extract.canvas(app.stage);
 
-                document.body.appendChild(canvas);
-                const context = canvas.getContext('2d');
-
+                const canvas2 = document.createElement('canvas');
+                canvas2.width = outputOptions.width;
+                canvas2.height = outputOptions.height;
+                document.body.appendChild(canvas2);
+                const context = canvas2.getContext('2d');
+                context.drawImage(canvas, 0, 0);
                 context.scale(1, -1);
                 const imageData = context.getImageData(0, 0, outputOptions.width, outputOptions.height);
 
