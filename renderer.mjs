@@ -134,6 +134,7 @@ app.init({
                 const img = new Image();
 
                 img.src = base64;
+                img.title = obj.name;
                 document.body.appendChild(img);
             }
             else if (obj.frame)
@@ -144,6 +145,7 @@ app.init({
                 const canvas2 = document.createElement('canvas');
                 canvas2.width = outputOptions.width;
                 canvas2.height = outputOptions.height;
+                canvas2.title = obj.name;
                 document.body.appendChild(canvas2);
                 const context = canvas2.getContext('2d');
                 context.drawImage(canvas, 0, 0);
